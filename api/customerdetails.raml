@@ -1,0 +1,88 @@
+#%RAML 1.0
+title: CustomerDetails
+description: This Api shows up the details of customers 
+version: V1
+protocols: [HTTP,HTTPS]
+
+securitySchemes:
+  passingheaders: !include SecuritySceme/securityScheme.raml  
+  
+/searchcustomer:
+  securedBy:
+    - passingheaders     
+  description: This Service uses for to search all customers details
+  get:
+    responses:
+      200:
+       body:
+        application/json:
+          example: !include examples/searchcustomerresponse.json
+  /{customerid}:
+    securedBy:
+      - passingheaders
+    description: This service uses for search single customers
+    uriParameters:
+      customerid:
+        type: number
+        required: true
+    get:
+      responses:
+        200:
+          body:
+            application/json:
+              example: !include examples/searchsinglecustomer.json
+/insertcustomer:
+  securedBy:
+    - passingheaders
+      
+  description: This Service uses for insert a new record 
+  post:
+    body:
+      application/json:
+        example: !include examples/insertnewrecordrequest.json
+        type: !include DataTypes/dataTypesinglerequest.raml
+    responses:
+      201:
+        body:
+          application/json:
+            example: !include examples/insertnewrecordresponse.json
+/updatecustomer:
+  securedBy:
+    - passingheaders:
+      
+  put:
+    queryParameters:
+      customerid :
+        type: number
+        required: true
+    body:
+      application/json:
+        example: !include examples/updatecustomerrequest.json
+        type : !include DataTypes/dataTypeupdate.raml
+    responses:
+      203:
+        body:
+          application/json:
+            example: !include examples/updatecustomerresponse.json
+/deletecustomer:
+  delete:
+    queryParameters:
+      customerid:
+        type: number
+        required: true
+    responses:
+      305:
+        body:
+          application/json:
+            example: !include examples/deleterecordresponse.json
+              
+      
+              
+          
+              
+          
+                
+        
+      
+          
+  

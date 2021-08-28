@@ -1,0 +1,35 @@
+{
+  "configs": [
+    "customerdetails.xml"
+  ],
+  "secureProperties": [],
+  "redeploymentEnabled": true,
+  "name": "com.mycompany:firsttemplate:1.0.0-SNAPSHOT",
+  "minMuleVersion": "4.3.0",
+  "requiredProduct": "MULE",
+  "classLoaderModelLoaderDescriptor": {
+    "id": "mule",
+    "attributes": {
+      "exportedPackages": [],
+      "exportedResources": [
+        "api/customerdetails.raml",
+        "api/DataTypes/dataTypesinglerequest.raml",
+        "api/DataTypes/dataTypeupdate.raml",
+        "api/examples/deleterecordresponse.json",
+        "api/examples/insertnewrecordrequest.json",
+        "api/examples/insertnewrecordresponse.json",
+        "api/examples/searchcustomerresponse.json",
+        "api/examples/searchsinglecustomer.json",
+        "api/examples/updatecustomerrequest.json",
+        "api/examples/updatecustomerresponse.json",
+        "api/SecuritySceme/securityScheme.raml",
+        "customerdetails.xml",
+        "log4j2.xml"
+      ]
+    }
+  },
+  "bundleDescriptorLoader": {
+    "id": "mule",
+    "attributes": {}
+  }
+}
